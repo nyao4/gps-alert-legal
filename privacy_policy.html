@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>GPSアラート｜プライバシーポリシー（公開前案）</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#f5f7f4;--paper:#fff;--text:#253b35;--muted:#52665f;--accent:#236b5b;--line:#d7e2dc;--soft:#edf5f0;--warn:#fff2d8;--warn-text:#694712}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.95 system-ui,-apple-system,"Yu Gothic UI","Meiryo",sans-serif;overflow-wrap:anywhere}
+    main{max-width:960px;margin:36px auto;padding:40px 52px;background:var(--paper);border-top:5px solid var(--accent)}
+    header{padding-bottom:24px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em;font-size:.8rem}
+    h1{font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.5;margin:8px 0 12px;letter-spacing:.02em}h2{font-size:1.2rem;margin:0 0 16px;line-height:1.65}h3{font-size:1rem;margin:22px 0 8px}
+    p{margin:10px 0}section{padding:28px 0;border-bottom:1px solid var(--line)}a{color:var(--accent);text-underline-offset:4px}a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .meta,.muted,footer{color:var(--muted);font-size:.88rem}.notice{padding:18px 22px;margin:22px 0;background:var(--warn);color:var(--warn-text);border-left:4px solid #b58026}.summary{background:var(--soft);padding:18px 22px;margin:24px 0}
+    ul,ol{padding-left:1.4em;margin:10px 0}li{margin:7px 0}nav{padding:20px 0}nav ol{columns:2;column-gap:32px;font-size:.92rem}nav li{break-inside:avoid}
+    table{border-collapse:collapse;width:100%;font-size:.9rem;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:13px 12px;border-bottom:1px solid var(--line)}th{background:var(--soft);font-weight:650}th:first-child{width:25%}
+    dl{margin:12px 0}dt{font-weight:650;margin-top:12px}dd{margin:2px 0 0}.placeholder{font-weight:700;color:var(--warn-text);background:var(--warn);padding:2px 6px}footer{padding-top:24px}code{font-size:.88em;overflow-wrap:anywhere}
+    @media(max-width:640px){main{margin:0;padding:24px 20px}nav ol{columns:1}table{font-size:.83rem}th,td{padding:10px 7px}th:first-child{width:29%}.notice,.summary{padding:14px 16px}}
+    @media(prefers-color-scheme:dark){:root{--bg:#101816;--paper:#18221e;--text:#e8eee9;--muted:#b7c7be;--accent:#a8d6bf;--line:#35483e;--soft:#23352c;--warn:#392e19;--warn-text:#f0d49e}}
+    @media print{body{background:white;color:#18221e;font-size:10pt}main{margin:0;padding:0;max-width:none;background:white}nav{display:none}section{break-inside:auto}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit}footer{font-size:8pt}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">GPS ALERT / PRIVACY</div>
+    <h1>プライバシーポリシー</h1>
+    <p>「GPSアラート」における位置情報、予定、日記、TODO、画像およびGoogle連携情報の取扱いについて説明します。</p>
+    <p class="meta">対象アプリ：GPSアラート（英語名：GPS Alert）／パッケージ：<code>app.gpsalert</code><br>本案の作成・実装確認日：2026年11月25日<br>施行日：<span class="placeholder">［公開時の施行日を記入］</span></p>
+  </header>
+
+  <aside class="notice" aria-label="公開前の確認事項">
+    <strong>公開前案 — 運営者情報の記入と最終確認が必要です。</strong>
+    <p>運営者名・連絡先が未確認のため、記入欄を残しています。本案は確認時点のソースコードと外部サービスの公式資料に基づくもので、法律上の適合やストア審査の通過を保証するものではありません。公開前に末尾の確認事項を完了してください。</p>
+  </aside>
+
+  <div class="summary">
+    <strong>特にご確認いただきたいこと</strong>
+    <ul>
+      <li>位置情報は、場所への出入りの通知と、任意で有効にする「場所自動記録」・タイムラインに利用します。設定と権限に応じ、画面を閉じている間も取得します。</li>
+      <li>Google連携を許可すると、選択したアカウントの予定・タスク等へアクセスし、作成・変更・削除を行います。</li>
+      <li>「ローカルのみ」は記録先の指定です。地図・住所検索・施設名取得に伴う外部通信まで停止する設定ではありません。</li>
+      <li>端末内の削除、Google上の削除、バックアップの削除は、それぞれ別に確認する必要があります。</li>
+    </ul>
+  </div>
+
+  <nav aria-label="目次">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#operator">運営者・適用範囲</a></li><li><a href="#data">取り扱う情報と目的</a></li>
+      <li><a href="#location">位置情報とバックグラウンド動作</a></li><li><a href="#google">Googleアカウント連携</a></li>
+      <li><a href="#destinations">保存先と外部送信</a></li><li><a href="#sharing">共有・第三者提供・国外での処理</a></li>
+      <li><a href="#permissions">権限と利用者の選択</a></li><li><a href="#retention">保存期間</a></li>
+      <li><a href="#deletion">停止・連携解除・削除</a></li><li><a href="#security">安全管理と利用時の注意</a></li>
+      <li><a href="#advertising">広告・分析・AI</a></li><li><a href="#minors">未成年者の利用</a></li>
+      <li><a href="#requests">お問い合わせ・権利の行使</a></li><li><a href="#changes">本ポリシーの変更</a></li>
+    </ol>
+  </nav>
+
+  <section id="operator">
+    <h2>1. 運営者・適用範囲</h2>
+    <p><span class="placeholder">［運営者の正式名称］</span>（以下「運営者」）は、GPSアラート（以下「本アプリ」）における利用者情報を、本ポリシーに従って取り扱います。本ポリシーは、アプリ内の処理および本アプリが行う外部サービスとの連携に適用します。</p>
+    <p>本アプリは、利用者自身の場所に結びついた用事の通知、予定・日記・TODOの管理を目的としています。他人の位置を共有・追跡する機能を提供するものではありません。</p>
+    <p>Google等の外部サービス自身の処理には、その事業者の規約・プライバシーポリシーも適用されます。</p>
+  </section>
+
+  <section id="data">
+    <h2>2. 取り扱う情報と目的</h2>
+    <table>
+      <thead><tr><th scope="col">情報の種類</th><th scope="col">内容・主な利用目的</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">位置・移動・滞在</th><td>緯度・経度、取得時刻、位置精度、取得できる場合の速度等、滞在の開始・終了時刻、移動経路。アラート判定、現在地表示、タイムライン、場所自動記録に利用します。</td></tr>
+        <tr><th scope="row">地点・アラート設定</th><td>地点名、住所、施設名、座標、自宅設定、半径、入退出条件、通知時刻・遅延、メモ、有効状態。通知、地図表示、履歴・アプリ内アドレス帳に利用します。アドレス帳は本アプリ内の地点一覧であり、端末の連絡先一覧ではありません。</td></tr>
+        <tr><th scope="row">予定・日記</th><td>タイトル、説明・メモ、場所・座標、開始・終了日時、終日・繰り返し設定、イベントID、画像参照情報等。カレンダー表示、地図表示、編集、Googleとの同期に利用します。</td></tr>
+        <tr><th scope="row">TODO</th><td>タスク名、メモ、期限、完了状態、タスクリスト・タスクID等。端末内の管理と、許可されたGoogle Tasks連携に利用します。</td></tr>
+        <tr><th scope="row">選択した画像</th><td>利用者が日記に添付した画像ファイルと参照情報。表示、端末内保存、設定に応じたGoogle Driveへの保存・復元に利用します。元画像に位置等のメタデータが含まれる場合があり、一律に除去する実装ではありません。</td></tr>
+        <tr><th scope="row">Google認証・許可</th><td>利用者が許可した権限とアクセストークン。Google APIの認証・連携に利用します。本アプリがGoogleアカウントのパスワードを取得することはありません。</td></tr>
+        <tr><th scope="row">検索・通信・設定</th><td>検索文字列、検索対象の座標・地域・言語、表示中の地図範囲、アプリ設定。地図表示、住所・施設検索、言語対応等に利用します。外部SDKでは端末情報、IPアドレス、SDK識別子、SDKの障害・操作情報等も処理されます。</td></tr>
+        <tr><th scope="row">問い合わせ情報</th><td>利用者が運営者へ送った連絡先、問い合わせ内容、任意に提供した資料等。回答、不具合調査、本人確認が必要な請求への対応に利用します。不要な位置履歴・画像・認証情報は送らないでください。</td></tr>
+      </tbody>
+    </table>
+    <p>本アプリは、端末内のアプリ用データベース、設定領域、ファイル領域に情報を保存します。確認時点の実装では、運営者が管理する独自サーバーへ予定や位置履歴を集約する機能はありません。</p>
+  </section>
+
+  <section id="location">
+    <h2>3. 位置情報とバックグラウンド動作</h2>
+    <p>Androidの位置情報権限と、Google Play開発者サービスの位置情報機能等を利用し、現在地を取得します。正確な位置情報が許可されていない場合、取得できる精度や利用できる機能が制限されます。</p>
+    <p>有効なアラートの監視、または設定で有効にした場所自動記録・タイムラインのため、設定・権限・OSの制御に応じて、アプリが前面にないときや画面を消している間も位置情報を取得する場合があります。監視サービスは端末内の継続通知を利用し、設定に応じて端末再起動後に再開することがあります。</p>
+    <p>位置情報は、指定地点への入退出判定、滞在場所・時刻の記録、地図上の表示に利用します。住所や施設名を調べるときは、座標・検索範囲等を外部の地図・地名サービスへ送信する場合があります。</p>
+    <p><strong>場所自動記録をオフにしても、有効なアラートの位置監視等まで停止するとは限りません。</strong>位置取得を止めるには、関連する監視・記録設定を停止するか、OSで位置情報権限を取り消してください。</p>
+  </section>
+
+  <section id="google">
+    <h2>4. Googleアカウント連携</h2>
+    <p>Googleとの連携時には、必要に応じてGoogleのアカウント選択・許可画面を表示します。APIの操作対象は、その際に許可したアカウントです。端末にログインしているすべてのアカウントのデータを取得する仕様ではありません。</p>
+    <ul>
+      <li><strong>Google Calendar：</strong>予定ページではメインカレンダーの予定を取得・作成・更新・削除します。Googleへ保存する日記には専用カレンダー「GPS Alert Diary」を利用します。同期時には、アプリ外で作られた対象カレンダーの予定も取得する場合があります。</li>
+      <li><strong>Google Tasks：</strong>連携したタスクリストとタスクの取得・作成・更新・削除等を行います。</li>
+      <li><strong>Google Drive：</strong>バックアップ・復元、および設定に応じた日記添付画像の保存・取得に利用します。</li>
+    </ul>
+    <p>権限には <code>calendar</code>、<code>tasks</code>、<code>drive.appdata</code>、<code>drive.file</code> の各OAuthスコープを、利用する機能に応じて要求します。特にCalendarの権限は、表示中の1件だけに限定された権限ではありません。</p>
+    <p>Google APIから得た情報は、利用者に提供する予定・日記・TODOの表示・編集・同期・バックアップ等に限定して利用します。広告配信、データ販売、信用判断、汎用AIモデルの学習には利用しません。Google API情報の利用・他アプリへの転送には、<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>のLimited Use要件を適用します。</p>
+    <p>運営者がGoogle API情報を人手で閲覧する運用は原則行いません。問い合わせ対応等で閲覧が必要な場合は、利用者の明確な同意を得た範囲、または法令・セキュリティ対応等で認められる必要な範囲に限ります。</p>
+  </section>
+
+  <section id="destinations">
+    <h2>5. 保存先と外部送信</h2>
+    <table>
+      <thead><tr><th scope="col">送信先・機能</th><th scope="col">送信・保存する情報と目的</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Google Maps / Places</th><td>地図範囲、検索語、住所・座標、施設検索の位置・範囲・言語等を、地図描画・住所検索・施設名取得のため処理します。SDKはサービスの維持・改善等のため、端末・SDKの情報、IPアドレス、SDK識別子、障害情報、利用方法に応じた地図操作情報等をGoogleへ送信します。<a href="https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure">Mapsの開示資料</a>・<a href="https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure">Placesの開示資料</a>もご確認ください。</td></tr>
+        <tr><th scope="row">AndroidのGeocoder等</th><td>住所から座標、座標から住所等を求めるため、入力した住所・座標を端末の地名サービスへ渡します。端末・OSの提供元が利用する外部サービスで処理される場合があります。</td></tr>
+        <tr><th scope="row">Google Calendar</th><td>タイトル、日時、場所・座標、メモ、記録を識別する情報、画像の参照情報等を送信し、取得・同期します。カレンダーの公開・共有設定によっては、共有相手等も予定や場所情報を閲覧できます。</td></tr>
+        <tr><th scope="row">Google Tasks</th><td>タスク名、期限、メモ、完了状態等を送信し、取得・同期します。</td></tr>
+        <tr><th scope="row">Google Drive</th><td>利用者がバックアップを実行した場合、アラート、予定、日記、TODO、関連設定等のJSONデータをアプリ用データ領域へ保存します。添付画像は別の画像保存機能によりDrive上のフォルダへ保存される場合があります。画像本体がJSONバックアップにすべて含まれるとは限りません。</td></tr>
+        <tr><th scope="row">利用者が選んだ共有先</th><td>テキスト出力・共有を実行した場合、選択した情報をOSの共有機能で選んだアプリ等へ渡します。その後の取扱いは共有先の規約等に従います。</td></tr>
+      </tbody>
+    </table>
+    <h3>場所自動記録の保存先</h3>
+    <ul>
+      <li><strong>ローカルのみ：</strong>新しい場所自動記録を端末内へ保存し、その記録をGoogle Calendarへ送るための同期対象にしません。</li>
+      <li><strong>Googleのみ：</strong>新しい記録をGoogle Calendarへ保存します。アプリ内表示や未同期処理のため、端末にもデータを保持します。</li>
+      <li><strong>両方：</strong>端末内の記録を保持し、Google Calendarとも同期します。</li>
+    </ul>
+    <p>保存先の変更は新しい記録への適用であり、既存のGoogle上の記録を自動削除・移動するものではありません。<strong>「ローカルのみ」でも、地図や住所・施設検索等の通信、利用者が別途実行するDriveバックアップや共有まで禁止するものではありません。</strong></p>
+  </section>
+
+  <section id="sharing">
+    <h2>6. 共有・第三者提供・国外での処理</h2>
+    <p>運営者は、利用者情報を販売しません。上記の機能提供に伴う外部サービスへの送信、利用者が指示した共有、適用法令に基づき必要な場合等を除き、利用者の同意なく第三者へ個人情報を提供しません。Google API情報については、前述のLimited Use要件を優先して取り扱います。</p>
+    <p>Google LLCおよび関係会社等によるサービスでは、日本国外の設備や拠点で情報が処理・保存される場合があります。Googleによる取扱い・保護措置等は、<a href="https://policies.google.com/privacy?hl=ja">Googleプライバシーポリシー</a>をご確認ください。運営者は、適用法令上必要な情報提供・同意取得その他の対応を行います。</p>
+    <p class="muted">［公開前確認：提供先の契約主体、所在国、国外移転の法的根拠および必要な情報提供を、配布地域と実際の契約に照らして確定してください。Googleポリシーへのリンクだけで、すべての法令上の義務を満たすと判断しないでください。］</p>
+  </section>
+
+  <section id="permissions">
+    <h2>7. 権限と利用者の選択</h2>
+    <p>位置情報、バックグラウンド位置情報、通知、Google連携等は、OS・Googleの許可画面やアプリ設定で選択できます。画像については、OSの選択画面で利用者が選んだ画像を扱い、カメラやマイク、端末の連絡先一覧へのアクセスを要求する実装ではありません。</p>
+    <p>権限を拒否・取り消した場合、その情報が必要な機能は利用できない、または制限されることがあります。通知権限の取り消しだけでは、位置監視・記録やクラウド同期がすべて停止するとは限りません。</p>
+    <p>本ポリシーの表示は、すべての権限や外部送信に対する一括同意を意味しません。必要な説明や許可を、該当する機能の利用時に別途行います。</p>
+  </section>
+
+  <section id="retention">
+    <h2>8. 保存期間</h2>
+    <ul>
+      <li><strong>アラート・予定・日記・TODO・地点情報：</strong>利用者による削除等まで端末内に保持します。履歴の一部には設定による件数制限や整理処理があります。</li>
+      <li><strong>タイムラインの位置点・滞在履歴：</strong>保持期間の設定に応じて整理します。無期限設定の場合は期間による自動削除を行いません。整理は関連処理の実行時に行われ、設定変更と同時にすべて消えるとは限りません。</li>
+      <li><strong>未同期操作：</strong>作成・更新・削除の処理が完了するまで等、再試行に必要な期間保持します。オフライン・許可不足・クォータ制限等で完了が遅れる場合があります。</li>
+      <li><strong>Google上のデータ：</strong>該当サービスでの削除等まで保持されます。タイムラインの保持期間を短くしても、Google Calendarの記録、Drive画像、バックアップが連動して削除されるわけではありません。</li>
+      <li><strong>バックアップ・共有済みの複製：</strong>それぞれの保存先で削除するまで残る場合があります。バックアップを復元すると、削除済みの情報が再び端末へ戻る場合があります。</li>
+      <li><strong>問い合わせ情報：</strong>対応、紛争・不正防止、法令上必要な保管等に必要な期間に限り保持し、不要となった情報は削除または適切に処理します。</li>
+    </ul>
+  </section>
+
+  <section id="deletion">
+    <h2>9. 停止・連携解除・削除</h2>
+    <h3>端末内の記録とGoogle上の日記</h3>
+    <p>日記ページのメニュー「日記データ削除」から、ローカル・Google Calendarの対象と、全件・期間を選択して削除できます。ローカル日記の削除には、その処理の対象となる端末内添付画像等の削除が含まれますが、タイムラインの生の位置履歴をすべて削除する処理とは異なります。</p>
+    <p>Google側の削除が通信・クォータ制限等で未完了の場合、結果の表示を確認してください。再試行が必要になる場合があり、端末側の操作だけで即時のクラウド削除が保証されるものではありません。</p>
+    <h3>予定・タスク・アラート・その他の端末データ</h3>
+    <p>該当する編集・削除機能を利用してください。端末に保存されたアプリデータ全体を削除する場合は、Androidの本アプリの「ストレージ」からデータ消去を行うか、アプリをアンインストールしてください。利用者が他の場所へコピー・共有したファイルは別途削除してください。</p>
+    <h3>Drive画像・バックアップ</h3>
+    <p><strong>日記の削除やアンインストールで、Google Drive上の添付画像・バックアップまで自動的に削除されるわけではありません。</strong>通常のDriveフォルダにある画像はDrive側で削除し、アプリ用の非表示データはDriveのアプリ管理等、Googleが提供する管理手段で確認してください。ごみ箱やサービス側の保持についてもGoogleの案内に従ってください。</p>
+    <h3>Googleとの連携解除</h3>
+    <p><a href="https://myaccount.google.com/connections">Googleアカウントの接続管理</a>から本アプリのアクセス権を取り消せます。取り消しは今後のアクセスを制限する操作であり、既に端末へ保存した情報やGoogle上の予定・ファイルを削除する操作ではありません。必要なクラウド削除は、連携を解除する前に実行・完了を確認するか、Google側で直接行ってください。</p>
+  </section>
+
+  <section id="security">
+    <h2>10. 安全管理と利用時の注意</h2>
+    <p>本アプリは、Androidのアプリ用保存領域・権限制御、Googleの認可機構、およびGoogle REST APIとのHTTPS通信等を利用します。確認時点では、Androidの自動クラウドバックアップを無効化する設定としています。ただし、端末・OS固有の移行やバックアップ動作まで一律に保証するものではありません。</p>
+    <p>アプリが作成するローカルJSONバックアップは、アプリ独自の暗号化を施したファイルではありません。端末ロックを設定し、バックアップや出力データを信頼できる場所で管理してください。本アプリの保存方式を、エンドツーエンド暗号化と説明するものではありません。</p>
+    <p>画像には元ファイルのメタデータが残る場合があります。また、通知・ポップアップには地点名やメモ等が表示されるため、ロック画面の通知設定にもご注意ください。共有カレンダー・共有フォルダに保存した情報は、その共有設定の影響を受けます。</p>
+    <p>不正アクセス・漏えい等が判明した場合、運営者が管理する範囲について必要な調査・対処を行い、法令上必要な報告・本人への通知を行います。</p>
+  </section>
+
+  <section id="advertising">
+    <h2>11. 広告・分析・AI</h2>
+    <p>確認時点のアプリには広告SDK、運営者独自の行動分析基盤、外部の生成AI APIへ予定・日記・位置履歴を送信する機能は組み込まれていません。場所自動記録は、位置・滞在判定と住所・施設情報の取得等により行います。</p>
+    <p>一方、Google Maps・Places等のSDK自体による診断情報・端末情報等の処理はあります。「広告SDKがない」ことを「外部送信やSDKによる情報収集が一切ない」という意味で説明するものではありません。</p>
+  </section>
+
+  <section id="minors">
+    <h2>12. 未成年者の利用</h2>
+    <p>未成年の方は、位置情報やGoogle連携の意味を保護者等と確認してご利用ください。必要な場合は保護者等の同意を得てください。他人の予定・画像・位置に関する情報を入力・共有する場合は、その人の権利にも配慮してください。</p>
+  </section>
+
+  <section id="requests">
+    <h2>13. お問い合わせ・権利の行使</h2>
+    <p>運営者が保有する個人情報について、利用目的の通知、開示、訂正、利用停止・消去、第三者提供の停止等のご相談・請求は、以下の窓口で受け付けます。本人確認のうえ、適用法令に従って対応します。法令上対応できない場合は、その理由を説明します。</p>
+    <p>端末内やGoogleにのみ保存され、運営者がアクセスできない情報については、アプリ・OS・Google側での操作をご案内する場合があります。本人確認のためにGoogleのパスワードやアクセストークンを求めることはありません。</p>
+    <dl>
+      <dt>運営者</dt><dd><span class="placeholder">［個人または法人の正式名称を記入］</span></dd>
+      <dt>住所・代表者等</dt><dd><span class="placeholder">［適用法令上の公表等が必要な所在地・法人代表者情報を記入］</span></dd>
+      <dt>プライバシー問い合わせ窓口</dt><dd><span class="placeholder">［利用可能なメールアドレスまたは問い合わせ先URLを記入］</span></dd>
+    </dl>
+  </section>
+
+  <section id="changes">
+    <h2>14. 本ポリシーの変更</h2>
+    <p>機能、外部サービス、法令等の変更に伴い、本ポリシーを改定する場合があります。重要な変更はアプリ内または公開ページ等で分かりやすく案内し、法令やプラットフォームの規則上必要な場合は、追加の説明・同意取得を行います。公表日・施行日を更新します。</p>
+  </section>
+
+  <aside class="notice" aria-label="運営者向け公開前チェックリスト">
+    <h2>運営者向け：公開前チェックリスト</h2>
+    <ol>
+      <li>運営者・所在地等・問い合わせ先・施行日の記入欄を埋め、実際の対応窓口を用意する。</li>
+      <li>販売地域、未成年者の対象範囲、国外での取扱い、問い合わせ情報の実際の保管方法を確定し、必要に応じ専門家による確認を受ける。</li>
+      <li>バックグラウンド位置情報の目立つアプリ内説明と必要な同意を、OS権限要求より前に適切に実装・確認する。本HTMLだけで代用しない。</li>
+      <li>Google Playのデータセーフティ申告、OAuth同意画面、アプリ内の説明を、SDKを含めた実際の処理と一致させる。参照したSDK資料は最新版の説明であるため、配布するSDKバージョンとの対応も確認する。</li>
+      <li>Google API情報のLimited Use方針、人手による閲覧制限、問い合わせ・削除対応を、運用面でも実施できることを確認する。</li>
+      <li>公開用HTMLを、ログイン不要で閲覧できる安定したHTTPS URLへ配置し、アプリ内・ストア掲載情報からリンクする。本ファイルの保存だけでは掲載・アプリ組み込みは完了しない。</li>
+      <li>公開時に本案表示・運営者向けメモ・本チェックリストを整理し、必要なら<code>noindex</code>指定を変更する。外部に公開する前に内容を最終承認する。</li>
+    </ol>
+  </aside>
+
+  <footer>
+    <p>作成時に確認した公式資料：<a href="https://support.google.com/googleplay/android-developer/answer/10144311?hl=ja">Google Play「ユーザーデータ」</a>、<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>、<a href="https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/">個人情報保護委員会「通則編」</a>。Maps・PlacesのSDK開示資料は第5項を参照してください。</p>
+    <p>このHTMLは外部フォント、アクセス解析、Cookie、外部スクリプトを使用していません。公開先サーバーが記録するアクセスログ等は、実際のホスティング設定に応じて公開前に追記してください。</p>
+  </footer>
+</main>
+</body>
+</html>
